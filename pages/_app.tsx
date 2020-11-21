@@ -3,9 +3,11 @@ import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '../lib/apolloClient';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
+import MainLayout from '../components/Layouts/MainLayout';
 
 export default function App({ Component, pageProps }) {
   const apolloClient = useApollo(pageProps);
+  const Layout = Component?.layout ?? MainLayout;
 
   return (
     <>
@@ -19,7 +21,11 @@ export default function App({ Component, pageProps }) {
         defaultTheme="dark"
       >
         <ApolloProvider client={apolloClient}>
-          <Component {...pageProps} />
+          <div className="text-main component">
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </div>
         </ApolloProvider>
       </ThemeProvider>
     </>

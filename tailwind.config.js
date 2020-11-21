@@ -10,13 +10,16 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      fontSize: {
+        'main' : '0.925rem'
+      },
+      colors: {
+        gray: colors.trueGray,
+      }
     },
-    colors: {
-      gray: colors.trueGray,
-    }
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };

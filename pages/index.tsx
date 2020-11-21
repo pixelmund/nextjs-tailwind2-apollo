@@ -1,4 +1,6 @@
 import { useTheme } from 'next-themes';
+import Input from '../components/ui/Inputs/Input';
+import Label from '../components/ui/Label';
 
 function IndexPage() {
   const theme = useTheme();
@@ -13,6 +15,10 @@ function IndexPage() {
     <div>
       <div>Hello world</div>
       <button onClick={switchTheme}>Switch Theme</button>
+      <div>
+        <Label htmlFor="test">E-Mail</Label>
+        <Input id="test" name="test" placeholder="E-Mail" />
+      </div>
     </div>
   );
 }
